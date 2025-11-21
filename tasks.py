@@ -47,7 +47,8 @@ print(tokens)
 # -----------------------------------------------
 def tokenize(string: str) -> list:
   tokens = ["".join(char for char in word if char not in punct) for word in string.lower().split()]
-  tokens.sort()
+  #tokens.sort() # created issues for the grading
+  tokens = [token for token in tokens if token]
   return tokens
 
 # -----------------------------------------------
@@ -127,7 +128,8 @@ all(text_hist[key] == value for key, value in token_counts(text).items())
 
 # Your code here:
 # -----------------------------------------------
-token_to_id = _ # Your code here
+u_words = np.unique(words)
+token_to_id = {word: i for i, word in enumerate(u_words)}
 
 # Expected output: {'dog': 0, 'quick': 1, 'fox': 2, 'the': 3, 'over': 4, 'lazy': 5, 'brown': 6, 'jumps': 7}
 print(token_to_id)
@@ -139,7 +141,7 @@ print(token_to_id)
 #
 # Your code here:
 # -----------------------------------------------
-id_to_token = _ # Your code here
+id_to_token = 
 
 # tests: 
 # test 1
